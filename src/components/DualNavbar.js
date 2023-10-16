@@ -38,25 +38,28 @@ const DualNavbar = () => {
       case "men":
         return (
           <>
-            <li>Topwear</li>
-            <li>Shirts</li>
-            <li>Jeans</li>
+            <li>TOPWEAR</li>
+            <li>SHIRTS</li>
+            <li>JEANS</li>
+            <li>SNEAKERS</li>
           </>
         );
       case "women":
         return (
           <>
-            <li>Kurta</li>
-            <li>Leggings</li>
-            <li>Dresses</li>
+            <li>KURTA</li>
+            <li>LEGGINGS</li>
+            <li>DRESSES</li>
+            <li>BOTTOMWEAR</li>
           </>
         );
       case "kids":
         return (
           <>
-            <li>T-shirts</li>
-            <li>Shorts</li>
-            <li>Skirts</li>
+            <li>T-SHIRTS</li>
+            <li>SHORTS</li>
+            <li>SKIRTS</li>
+            <li>VACATION WEAR</li>
           </>
         );
       default:
@@ -64,12 +67,12 @@ const DualNavbar = () => {
     }
   };
 
+
   return (
     <div className="">
       <div
-        className={`fixed top-0 left-0 h-full w-3/5 bg-white z-20 transform ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+        className={`fixed top-0 left-0 h-full w-3/5 bg-white z-20 transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 ease-in-out`}
       >
         {/* Close icon to close the sidebar */}
         <div className="text-right p-8 ">
@@ -84,9 +87,8 @@ const DualNavbar = () => {
             <ul className="p-3 m-3 flex flex-wrap ">
               <Link to="/main">
                 <li
-                  className={`cursor-pointer p-4 ${
-                    activeCategory === "men" ? "font-bold  text-black" : ""
-                  }`}
+                  className={`cursor-pointer p-4 ${activeCategory === "men" ? "font-bold  text-black" : ""
+                    }`}
                   onClick={() => handleTopNavCategoryClick("men")}
                 >
                   Men
@@ -94,9 +96,8 @@ const DualNavbar = () => {
               </Link>
               <Link to="/women">
                 <li
-                  className={`cursor-pointer p-4 ${
-                    activeCategory === "women" ? "font-bold text-black" : ""
-                  }`}
+                  className={`cursor-pointer p-4 ${activeCategory === "women" ? "font-bold text-black" : ""
+                    }`}
                   onClick={() => handleTopNavCategoryClick("women")}
                 >
                   Women
@@ -104,9 +105,8 @@ const DualNavbar = () => {
               </Link>
               <Link to="/kids">
                 <li
-                  className={`cursor-pointer p-4 ${
-                    activeCategory === "kids" ? "font-bold text-black" : ""
-                  }`}
+                  className={`cursor-pointer p-4 ${activeCategory === "kids" ? "font-bold text-black" : ""
+                    }`}
                   onClick={() => handleTopNavCategoryClick("kids")}
                 >
                   Kids
@@ -153,6 +153,7 @@ const DualNavbar = () => {
                     <FaUser />
                   </li>
                 </Link>
+                <li className="hover p-3 font-bold">DOWNLOAD APP</li>
                 <Link to="/orderlist">
                   <li className="hover p-3 font-bold">OrderList</li>
                 </Link>
@@ -188,44 +189,51 @@ const DualNavbar = () => {
           <ul className="hidden space-x-4 px-44  sm:hidden md:hidden lg:flex">
             <Link to="/main">
               <li
-                className={`cursor-pointer ${
-                  activeCategory === "men" ? "font-bold  text-black" : ""
-                }`}
+                className={`cursor-pointer ${activeCategory === "men" ? "font-bold  text-black" : ""
+                  }`}
                 onClick={() => handleTopNavCategoryClick("men")}
               >
-                Men
+                MEN
               </li>
             </Link>
             <Link to="women">
               <li
-                className={`cursor-pointer ${
-                  activeCategory === "women" ? "font-bold text-black" : ""
-                }`}
+                className={`cursor-pointer ${activeCategory === "women" ? "font-bold text-black" : ""
+                  }`}
                 onClick={() => handleTopNavCategoryClick("women")}
               >
-                Women
+                WOMEN
               </li>
             </Link>
             <Link to="/kids">
               <li
-                className={`cursor-pointer ${
-                  activeCategory === "kids" ? "font-bold text-black" : ""
-                }`}
+                className={`cursor-pointer ${activeCategory === "kids" ? "font-bold text-black" : ""
+                  }`}
                 onClick={() => handleTopNavCategoryClick("kids")}
               >
-                Kids
+                KIDS
               </li>
             </Link>
           </ul>
           <ul className="hidden space-x-4 px-14 font-normal sm:hidden md:hidden lg:flex">
+            <li className="hover">
+              
+              <a
+                href="https://play.google.com/store/apps/details?id=com.thesouledstore"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                DOWNLOAD APP
+              </a>
+            </li>
             <Link to="/orderlist">
-              <li className="hover">OrderList</li>
+              <li className="hover">ORDERLIST</li>
             </Link>
             <Link to="/login">
-              <li>login</li>
+              <li>LOGIN</li>
             </Link>
             <Link to="/signup">
-              <li>signup</li>
+              <li>SIGNUP</li>
             </Link>
             <button
               onClick={() => {
@@ -233,7 +241,7 @@ const DualNavbar = () => {
                 console.log("log");
               }}
             >
-              Logout
+              LOGOUT
             </button>
           </ul>
         </div>

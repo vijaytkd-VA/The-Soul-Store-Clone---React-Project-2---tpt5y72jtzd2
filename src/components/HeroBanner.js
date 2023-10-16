@@ -7,6 +7,7 @@ import FetchApi from "./FetchApi";
 import { Link } from "react-router-dom";
 import Slider from "./Slider";
 const HeroBanner = () => {
+  
   const { data, loading, error } = FetchApi();
   console.log(data);
   console.log("Top Rated" === "TOP RATED");
@@ -29,6 +30,8 @@ const HeroBanner = () => {
   ];
 
   return (
+    
+    
     <div>
       {error ? (
         <p>Error: {error.message}</p>
@@ -41,6 +44,8 @@ const HeroBanner = () => {
               alt="loading gif"
             />
           </div>
+          
+          
         </div>
       ) : (
         <div>
@@ -57,7 +62,7 @@ const HeroBanner = () => {
               title={filter.title}
             />
           ))}
-          {/* console.log(data); */}
+          
         </div>
       )}
       <h2 className="bg-red-600 text-white p-3 text-3xl text-center">
