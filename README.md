@@ -40,7 +40,7 @@ Contributing
 Contributions are welcome! If you find any issues or have ideas for improvement, feel free to open an issue or submit a pull request. Please ensure that your contributions align with the project's coding standards.
 
 Contact
-For any inquiries or questions, please feel free to contact us at your-mohitevijaysinh8379@gmail.com.
+For any inquiries or questions, please feel free to contact us at-mohitevijaysinh8379@gmail.com.
 
 Feel free to enhance this README template with additional sections such as installation steps, deployment instructions, screenshots, and more. Tailor the information to accurately reflect your application and its features.
 
