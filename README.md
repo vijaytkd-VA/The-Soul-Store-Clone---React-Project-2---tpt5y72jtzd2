@@ -1,4 +1,4 @@
-The Souled Store - E-commerce Application
+## The Souled Store - E-commerce Application
 Welcome to The Souled Store, a modern e-commerce application built using React.js, Redux Toolkit for efficient state management, and Tailwind CSS for sleek and responsive styling. This application offers a seamless shopping experience with features like a fast-loading interface, a user-friendly sidebar, live product updates, powerful search capabilities, and secure user authentication.
 
 Key Features
