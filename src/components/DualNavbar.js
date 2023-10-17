@@ -56,7 +56,7 @@ const DualNavbar = () => {
       case "kids":
         return (
           <>
-            <li>T-SHIRTS</li>
+            <li>TSHIRTS</li>
             <li>SHORTS</li>
             <li>SKIRTS</li>
             <li>VACATION WEAR</li>
@@ -87,11 +87,11 @@ const DualNavbar = () => {
             <ul className="p-3 m-3 flex flex-wrap ">
               <Link to="/main">
                 <li
-                  className={`cursor-pointer p-4 ${activeCategory === "men" ? "font-bold  text-black" : ""
+                  className={`cursor-pointer p-4 ${activeCategory === "men" ? " font-bold  text-black" : ""
                     }`}
                   onClick={() => handleTopNavCategoryClick("men")}
                 >
-                  Men
+                  MEN
                 </li>
               </Link>
               <Link to="/women">
@@ -100,7 +100,7 @@ const DualNavbar = () => {
                     }`}
                   onClick={() => handleTopNavCategoryClick("women")}
                 >
-                  Women
+                  WOMEN
                 </li>
               </Link>
               <Link to="/kids">
@@ -109,7 +109,7 @@ const DualNavbar = () => {
                     }`}
                   onClick={() => handleTopNavCategoryClick("kids")}
                 >
-                  Kids
+                  KIDS
                 </li>
               </Link>
             </ul>
@@ -153,22 +153,28 @@ const DualNavbar = () => {
                     <FaUser />
                   </li>
                 </Link>
-                <li className="hover p-3 font-bold">DOWNLOAD APP</li>
+                <li className="hover p-3 font-bold">  <a
+                href="https://play.google.com/store/apps/details?id=com.thesouledstore"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                DOWNLOAD APP
+              </a></li>
                 <Link to="/orderlist">
-                  <li className="hover p-3 font-bold">OrderList</li>
+                  <li className="hover p-3 font-bold">ORDERLIST</li>
                 </Link>
                 <Link to="/login">
-                  <li className="p-3">login</li>
+                  <li className="hover p-3 font-bold">LOGIN</li>
                 </Link>
                 <Link to="/signup">
-                  <li className="p-3">signup</li>
+                  <li className="hover p-3 font-bold">SIGNUP</li>
                 </Link>
-                <button
+                <button 
                   onClick={() => {
                     dispatch(logout());
                     console.log("log");
                   }}
-                  className="p-3"
+                  className="hover p-3 font-bold"
                 >
                   Logout
                 </button>
@@ -186,7 +192,7 @@ const DualNavbar = () => {
           >
             <FaBars size={24} className="cursor-pointer" />
           </div>
-          <ul className="hidden space-x-4 px-44  sm:hidden md:hidden lg:flex">
+          <ul className=" hover p-3 font-bold hidden space-x-4 px-44  sm:hidden md:hidden lg:flex">
             <Link to="/main">
               <li
                 className={`cursor-pointer ${activeCategory === "men" ? "font-bold  text-black" : ""
@@ -216,30 +222,31 @@ const DualNavbar = () => {
             </Link>
           </ul>
           <ul className="hidden space-x-4 px-14 font-normal sm:hidden md:hidden lg:flex">
-            <li className="hover">
+            <li className="hover p-3 font-bold">
               
               <a
                 href="https://play.google.com/store/apps/details?id=com.thesouledstore"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                DOWNLOAD APP
+                DOWNLOADAPP
               </a>
             </li>
             <Link to="/orderlist">
-              <li className="hover">ORDERLIST</li>
+              <li className="hover p-3 font-bold">ORDERLIST</li>
             </Link>
             <Link to="/login">
-              <li>LOGIN</li>
+              <li className="hover p-3 font-bold">LOGIN</li>
             </Link>
             <Link to="/signup">
-              <li>SIGNUP</li>
+              <li className="hover p-3 font-bold">SIGNUP</li>
             </Link>
-            <button
+            <button 
               onClick={() => {
                 dispatch(logout());
                 console.log("log");
               }}
+              className="hover p-3 font-bold"
             >
               LOGOUT
             </button>
