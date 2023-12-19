@@ -12,7 +12,7 @@ const ProductInfo = () => {
   const [productInfo, setProductInfo] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [quantity, setQuantity] = useState("1");
+  const [quantity, setQuantity] = useState(1);
   const [isInWishlist, setIsInWishList] = useState(false);
   const userToken = useSelector((state) => state.auth.user);
 
@@ -37,6 +37,7 @@ const ProductInfo = () => {
     FetchData();
   }, [productId]);
   const handleQuantityChange = (e) => {
+    console.log(e.target.value);
     setQuantity(e.target.value);
   };
   // ------------------wishlist---------------------
