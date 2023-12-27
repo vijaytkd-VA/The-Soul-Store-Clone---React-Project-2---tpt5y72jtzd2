@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../utilities/authSlice";
 import SearchResult from "./SearchResult";
 
@@ -19,6 +19,7 @@ const DualNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
+  const userToken = useSelector((state) => state.auth.user);
 
   const handleTopNavCategoryClick = (category) => {
     setActiveCategory(category);
@@ -67,7 +68,6 @@ const DualNavbar = () => {
     }
   };
 
-
   return (
     <div className="">
       <div
@@ -87,7 +87,7 @@ const DualNavbar = () => {
             <ul className="p-3 m-3 flex flex-wrap ">
               <Link to="/main">
                 <li
-                  className={`cursor-pointer p-4 ${activeCategory === "men" ? " font-bold  text-black" : ""
+                  className={`cursor-pointer p-4 ${activeCategory === "men" ? "font-bold  text-black" : ""
                     }`}
                   onClick={() => handleTopNavCategoryClick("men")}
                 >
@@ -154,30 +154,35 @@ const DualNavbar = () => {
                   </li>
                 </Link>
                 <li className="hover p-3 font-bold">  <a
-                href="https://play.google.com/store/apps/details?id=com.thesouledstore"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                DOWNLOAD APP
-              </a></li>
+                  href="https://play.google.com/store/apps/details?id=com.thesouledstore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  DOWNLOAD APP
+                </a></li>
                 <Link to="/orderlist">
                   <li className="hover p-3 font-bold">ORDERLIST</li>
                 </Link>
-                <Link to="/login">
-                  <li className="hover p-3 font-bold">LOGIN</li>
-                </Link>
-                <Link to="/signup">
-                  <li className="hover p-3 font-bold">SIGNUP</li>
-                </Link>
-                <button 
-                  onClick={() => {
-                    dispatch(logout());
-                    console.log("log");
-                  }}
-                  className="hover p-3 font-bold"
-                >
-                  Logout
-                </button>
+                {userToken === null ? (
+                  <>
+                    <Link to="/login">
+                      <li className="p-3 font-bold">LOGIN</li>
+                    </Link>
+                    <Link to="/signup">
+                      <li className="p-3 font-bold">SIGNUP</li>
+                    </Link>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => {
+                      dispatch(logout());
+                      console.log("log");
+                    }}
+                    className="p-3 font-bold"
+                  >
+                    LOGOUT
+                  </button>
+                )}
               </ul>
             </div>
           </>
@@ -192,7 +197,7 @@ const DualNavbar = () => {
           >
             <FaBars size={24} className="cursor-pointer" />
           </div>
-          <ul className=" hover p-3 font-bold hidden space-x-4 px-44  sm:hidden md:hidden lg:flex">
+          <ul className="hidden space-x-4 px-44  sm:hidden md:hidden lg:flex">
             <Link to="/main">
               <li
                 className={`cursor-pointer ${activeCategory === "men" ? "font-bold  text-black" : ""
@@ -222,8 +227,8 @@ const DualNavbar = () => {
             </Link>
           </ul>
           <ul className="hidden space-x-4 px-14 font-normal sm:hidden md:hidden lg:flex">
-            <li className="hover p-3 font-bold">
-              
+            <li className="hover  ">
+
               <a
                 href="https://play.google.com/store/apps/details?id=com.thesouledstore"
                 target="_blank"
@@ -233,23 +238,27 @@ const DualNavbar = () => {
               </a>
             </li>
             <Link to="/orderlist">
-              <li className="hover p-3 font-bold">ORDERLIST</li>
+              <li className="hover">ORDERLIST</li>
             </Link>
-            <Link to="/login">
-              <li className="hover p-3 font-bold">LOGIN</li>
-            </Link>
-            <Link to="/signup">
-              <li className="hover p-3 font-bold">SIGNUP</li>
-            </Link>
-            <button 
-              onClick={() => {
-                dispatch(logout());
-                console.log("log");
-              }}
-              className="hover p-3 font-bold"
-            >
-              LOGOUT
-            </button>
+            {!userToken ? (
+              <>
+                <Link to="/login">
+                  <li>LOGIN</li>
+                </Link>
+                <Link to="/signup">
+                  <li>SIGNUP</li>
+                </Link>
+              </>
+            ) : (
+              <button
+                onClick={() => {
+                  dispatch(logout());
+                  console.log("log");
+                }}
+              >
+                LOGOUT
+              </button>
+            )}
           </ul>
         </div>
       </nav>
